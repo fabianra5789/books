@@ -14,7 +14,12 @@
     "apps/*"
   ],
   "dependencies": {
+    "@nestjs/config": "^3.0.1",
     "@nestjs/jwt": "^10.1.1",
+    "@nestjs/mongoose": "^10.0.1",
+    "@nestjs/platform-express": "^10.2.4",
+    "mongodb": "^6.0.0",
+    "mongoose": "^7.5.0",
     "passport-jwt": "^4.0.1",
     "turbo": "^1.10.13"
   }
