@@ -18,9 +18,9 @@ const Inicio = () => {
     autor: "",
   });
 
-  const handleSubmit = async () => {
+  const goToBooks = async () => {
     console.log(form);
-    const toastID = toast.loading("Ya casi inicias danos unos segundos");
+    const toastID = toast.loading("Agregando libro, dame un momento");
     await new Promise((resolve) => {
       setTimeout(() => {
         console.log("Han pasado 10 segundos.");
@@ -28,10 +28,10 @@ const Inicio = () => {
       }, 10000);
     });
     toast.dismiss(toastID);
-    router.push("/");
+    router.push("/auth/books");
   };
-  const goToRegister = () => {
-    router.push("/auth/register");
+  const goToLogin = () => {
+    router.push("/auth/login");
   };
 
   const handleChange = (name, value) => {
@@ -83,8 +83,11 @@ const Inicio = () => {
               onChange={(e) => handleChange("titulo", e.target.value)}
             />
           </div>
-          <Button colorScheme="teal" onClick={handleSubmit}>
+          <Button colorScheme="teal" onClick={goToBooks}>
             Agregar
+          </Button>
+          <Button colorScheme="teal" onClick={goToLogin}>
+            Cerrar Sesion
           </Button>
         </div>
       </Card>{" "}
