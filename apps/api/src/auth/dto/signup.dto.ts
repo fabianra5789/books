@@ -9,6 +9,6 @@ export class SignUpDto {
   readonly email: string;
   @IsNotEmpty()
   @IsString()
-  @MinLength(8)
+  @MinLength(6)
   readonly password: string;
 }
