@@ -38,3 +38,4 @@ apps/client/package-lock.json
 apps/api/package-lock.json
 apps/client/.next
 package-lock.json
+node_modules
