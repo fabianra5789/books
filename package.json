@@ -18,10 +18,12 @@
     "@nestjs/jwt": "^10.1.1",
     "@nestjs/mongoose": "^10.0.1",
     "@nestjs/platform-express": "^10.2.4",
+    "@nextui-org/react": "^2.1.8",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.0",
+    "framer-motion": "^10.16.2",
     "mongodb": "^6.0.0",
     "mongoose": "^7.5.0",
-    "@nextui-org/react": "^2.1.8",
-    "framer-motion": "^10.16.2",
     "passport-jwt": "^4.0.1",
     "turbo": "^1.10.13"
   }
