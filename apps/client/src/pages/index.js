@@ -19,16 +19,31 @@ const Inicio = () => {
   });
 
   const goToBooks = async () => {
-    console.log(form);
     const toastID = toast.loading("Agregando libro, dame un momento");
-    await new Promise((resolve) => {
-      setTimeout(() => {
-        console.log("Han pasado 10 segundos.");
-        resolve(); // Resuelve la promesa después de 10 segundos
-      }, 10000);
-    });
-    toast.dismiss(toastID);
-    router.push("/auth/books");
+    try {
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      var requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: JSON.stringify({
+          title: form.titulo,
+          description: form.descripcion,
+          price: Number(form.precio),
+          author: form.autor,
+          category: form.categoria,
+        }),
+        redirect: "follow",
+      };
+      const res = await fetch("http://localhost:3080/book/new", requestOptions);
+      const data = await res.json();
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      toast.dismiss(toastID);
+      router.push("/auth/books");
+    }
   };
   const goToLogin = () => {
     router.push("/auth/login");
@@ -59,28 +74,28 @@ const Inicio = () => {
             <Input
               variant="filled"
               placeholder="Ingresa la descripcion"
-              onChange={(e) => handleChange("titulo", e.target.value)}
+              onChange={(e) => handleChange("descripcion", e.target.value)}
             />
             <p className="text-base text-left font-bold my-2"></p>
             <p className="text-base text-left font-bold my-2">categoria</p>
             <Input
               variant="filled"
               placeholder="Ingresa la categoria"
-              onChange={(e) => handleChange("titulo", e.target.value)}
+              onChange={(e) => handleChange("categoria", e.target.value)}
             />
             <p className="text-base text-left font-bold my-2"></p>
             <p className="text-base text-left font-bold my-2">precio</p>
             <Input
               variant="filled"
               placeholder="Ingresa el precio"
-              onChange={(e) => handleChange("titulo", e.target.value)}
+              onChange={(e) => handleChange("precio", e.target.value)}
             />
             <p className="text-base text-left font-bold my-2"></p>
             <p className="text-base text-left font-bold my-2">autor</p>
             <Input
               variant="filled"
               placeholder="Ingresa el autor"
-              onChange={(e) => handleChange("titulo", e.target.value)}
+              onChange={(e) => handleChange("autor", e.target.value)}
             />
           </div>
           <Button colorScheme="teal" onClick={goToBooks}>

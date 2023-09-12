@@ -7,6 +7,13 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ValidationPipe());
 
+  // Configura CORS
+  app.enableCors({
+    origin: 'http://localhost:3000', // Reemplaza con la URL de tu aplicación frontend
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+  });
+
   await app.listen(3080);
 }
 bootstrap();
