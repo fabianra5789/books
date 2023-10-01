@@ -5,6 +5,7 @@ import {
   FaCocktail,
   FaUser,
   FaInfoCircle,
+  FaPencilAlt,
 } from "react-icons/fa";
 
 import {
@@ -189,7 +190,7 @@ const Ini = () => {
           <Button
             colorScheme="teal"
             size="lg"
-            leftIcon={<FaUser />}
+            leftIcon={<FaPencilAlt />}
             onClick={goToAdd}
           >
             Registro

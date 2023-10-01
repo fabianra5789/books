@@ -44,14 +44,6 @@ const LoginPage = () => {
 
   return (
     <Box>
-      {/* Encabezado */}
-      <Box bg="teal" p={4}>
-        <Center>
-          <Heading as="h1" color="white">
-            BogotáNightlifeHub
-          </Heading>
-        </Center>
-      </Box>
       <main className={`flex min-h-screen items-center justify-center `}>
         <div className="flex justify-center items-center flex-col gap-6">
           <h1 className="text-center text-4xl font-bold">Inicio de sesion</h1>
@@ -87,12 +79,6 @@ const LoginPage = () => {
           </Button>
         </div>
       </main>
-      {/* Pie de página */}
-      <Box bg="teal" p={4} mt={4} textAlign="center">
-        <Text color="white">
-          Desarrollado por Eric Fabian Ramírez y Pablo Andrés Triana
-        </Text>
-      </Box>
     </Box>
   );
 };
