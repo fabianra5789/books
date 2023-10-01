@@ -1,114 +1,216 @@
 import React from "react";
-import { PinInput, PinInputField, Input, Button } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import toast from "react-hot-toast";
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import { Card, CardHeader, CardBody, CardFooter } from "@chakra-ui/react";
+import {
+  FaGlassCheers,
+  FaCocktail,
+  FaUser,
+  FaInfoCircle,
+} from "react-icons/fa";
 
-const inter = Inter({ subsets: ["latin"] });
-const Inicio = () => {
+import {
+  ChakraProvider,
+  extendTheme,
+  Box,
+  Container,
+  Heading,
+  Text,
+  Flex,
+  Button,
+  CSSReset,
+} from "@chakra-ui/react";
+
+const customTheme = extendTheme({
+  fonts: {
+    heading: "Montserrat, sans-serif",
+    body: "Roboto, sans-serif",
+  },
+  colors: {
+    primary: {
+      50: "#F4F4F4",
+      100: "#E5E5E5",
+    },
+    secondary: {
+      50: "#333333",
+      100: "#222222",
+    },
+    teal: {
+      500: "#008080",
+    },
+  },
+  components: {
+    Button: {
+      baseStyle: {
+        fontWeight: "bold",
+      },
+    },
+    Card: {
+      baseStyle: {
+        bg: "primary.100",
+        color: "secondary.50",
+      },
+    },
+  },
+});
+
+const Ini = () => {
   const router = useRouter();
-  const [show, setShow] = React.useState(true);
-  const [form, setFormValues] = React.useState({
-    titulo: "",
-    descripcion: "",
-    categoria: "",
-    precio: "",
-    autor: "",
-  });
 
-  const goToBooks = async () => {
-    const toastID = toast.loading("Agregando libro, dame un momento");
-    try {
-      var myHeaders = new Headers();
-      myHeaders.append("Content-Type", "application/json");
-      var requestOptions = {
-        method: "POST",
-        headers: myHeaders,
-        body: JSON.stringify({
-          title: form.titulo,
-          description: form.descripcion,
-          price: Number(form.precio),
-          author: form.autor,
-          category: form.categoria,
-        }),
-        redirect: "follow",
-      };
-      const res = await fetch("http://localhost:3080/book/new", requestOptions);
-      const data = await res.json();
-      console.log(data);
-    } catch (err) {
-      console.log(err);
-    } finally {
-      toast.dismiss(toastID);
-      router.push("/auth/books");
-    }
-  };
   const goToLogin = () => {
     router.push("/auth/login");
   };
-
-  const handleChange = (name, value) => {
-    const copyForm = form;
-    copyForm[name] = value;
-    setFormValues(copyForm);
+  const goToBares = () => {
+    router.push("/auth/bares");
   };
-  return (
-    <main className={`flex min-h-screen items-center justify-center `}>
-      <Card className="w-1/2">
-        {" "}
-        <div className="flex justify-center items-center flex-col gap-6">
-          <h1 className="text-center text-4xl font-bold">Registro de libros</h1>
+  const goToAdd = () => {
+    router.push("/auth/add");
+  };
 
-          <div className="flex flex-col justify-center">
-            <p className="text-base text-left font-bold my-2"></p>
-            <p className="text-base text-left font-bold my-2">titulo</p>
-            <Input
-              variant="filled"
-              placeholder="Ingresa el titulo"
-              onChange={(e) => handleChange("titulo", e.target.value)}
-            />
-            <p className="text-base text-left font-bold my-2"></p>
-            <p className="text-base text-left font-bold my-2">descripcion</p>
-            <Input
-              variant="filled"
-              placeholder="Ingresa la descripcion"
-              onChange={(e) => handleChange("descripcion", e.target.value)}
-            />
-            <p className="text-base text-left font-bold my-2"></p>
-            <p className="text-base text-left font-bold my-2">categoria</p>
-            <Input
-              variant="filled"
-              placeholder="Ingresa la categoria"
-              onChange={(e) => handleChange("categoria", e.target.value)}
-            />
-            <p className="text-base text-left font-bold my-2"></p>
-            <p className="text-base text-left font-bold my-2">precio</p>
-            <Input
-              variant="filled"
-              placeholder="Ingresa el precio"
-              onChange={(e) => handleChange("precio", e.target.value)}
-            />
-            <p className="text-base text-left font-bold my-2"></p>
-            <p className="text-base text-left font-bold my-2">autor</p>
-            <Input
-              variant="filled"
-              placeholder="Ingresa el autor"
-              onChange={(e) => handleChange("autor", e.target.value)}
-            />
-          </div>
-          <Button colorScheme="teal" onClick={goToBooks}>
-            Agregar
+  const goToRegister = () => {
+    router.push("/auth/register");
+  };
+
+  return (
+    <ChakraProvider theme={customTheme}>
+      <CSSReset />
+      <Box>
+        {/* Header */}
+        <Box
+          bg="secondary.100"
+          p={4}
+          mb={4}
+          borderBottom="1px solid secondary.50"
+        >
+          <Container maxW="container.xl">
+            <Flex alignItems="center">
+              <FaGlassCheers
+                size={24}
+                color="primary.50"
+                style={{ marginRight: "8px" }}
+              />
+              <Heading as="h1" color="primary.50" flex="1">
+                BogotáNightlifeHub
+              </Heading>
+              <Button colorScheme="teal" mr={2} onClick={goToLogin}>
+                Iniciar Sesión
+              </Button>
+              <Button colorScheme="teal" onClick={goToRegister}>
+                Registro de Usuario
+              </Button>
+            </Flex>
+          </Container>
+        </Box>
+
+        {/* Teal Section */}
+        <Container
+          maxW="container.xl"
+          bg="gray.600" // Cambiar el color de fondo a gris claro
+          p={6}
+          borderRadius="lg"
+          boxShadow="lg"
+          mb={4}
+          textAlign="center"
+        >
+          <FaCocktail size={32} color="primary.50" mb={2} />{" "}
+          <Heading as="h2" size="xl" color="primary.50" mb={4}>
+            Encuentra los Mejores Bares en Bogotá
+          </Heading>
+          <Text fontSize="lg" color="primary.50" mb={4}>
+            Explora nuestra extensa colección de bares en Bogotá. Encuentra
+            información detallada sobre precios, ubicaciones, catálogos y mucho
+            más.
+          </Text>
+          <Button
+            colorScheme="teal"
+            size="lg"
+            leftIcon={<FaUser />}
+            onClick={goToLogin}
+          >
+            ¡comencemos!
           </Button>
-          <Button colorScheme="teal" onClick={goToLogin}>
-            Cerrar Sesion
+        </Container>
+
+        {/* About Section */}
+        <Container
+          maxW="container.xl"
+          bg="gray.600"
+          p={6}
+          borderRadius="lg"
+          boxShadow="lg"
+          mt={4}
+          mb={4} // Agregar margen inferior para separar las cards
+          textAlign="center"
+        >
+          <FaInfoCircle size={32} color="teal.500" mb={2} />{" "}
+          <Text fontSize="lg" color="primary.50" mb={4}>
+            ¡Bienvenido a BogotáNightlifeHub - Tu Guía Definitiva de Bares en
+            Bogotá! Sumérgete en la emocionante escena nocturna de la capital
+            colombiana mientras exploramos los mejores bares que Bogotá tiene
+            para ofrecer. Si eres un amante de los cócteles artesanales, un
+            aficionado a la música en vivo, o simplemente alguien en busca de un
+            lugar acogedor para disfrutar con amigos, estás en el lugar
+            adecuado. En BogotáNightlifeHub, hemos recorrido cada rincón de esta
+            vibrante ciudad en busca de los bares más auténticos, exclusivos y
+            sorprendentes. Nuestra misión es brindarte información actualizada y
+            detallada sobre los mejores establecimientos, sus menús, eventos
+            especiales, y todo lo que necesitas saber para vivir una experiencia
+            única en la vida nocturna de Bogotá. Ya sea que estés planeando una
+            noche de diversión con amigos, una cita romántica o simplemente
+            desees explorar nuevos lugares, estamos aquí para ser tu guía
+            confiable en este emocionante viaje a través de los bares de Bogotá.
+            ¡Prepárate para descubrir el encanto de Bogotá después del
+            atardecer! Empecemos juntos esta emocionante aventura.
+          </Text>
+          <Button
+            colorScheme="teal"
+            size="lg"
+            leftIcon={<FaCocktail />}
+            onClick={goToBares}
+          >
+            Ver Bares
           </Button>
-        </div>
-      </Card>{" "}
-      {/* Fin de la tarjeta */}
-    </main>
+        </Container>
+
+        <Container
+          maxW="container.xl"
+          bg="gray.600"
+          p={6}
+          borderRadius="lg"
+          boxShadow="lg"
+          mb={4}
+          textAlign="center"
+        >
+          <FaCocktail size={32} color="primary.50" mb={2} />{" "}
+          <Heading as="h2" size="xl" color="primary.50" mb={4}>
+            ¡Quieres registrar tu sitio?
+          </Heading>
+          <Text fontSize="lg" color="primary.50" mb={4}>
+            Registra de manera facil y rapida tu sitio.
+          </Text>
+          <Button
+            colorScheme="teal"
+            size="lg"
+            leftIcon={<FaUser />}
+            onClick={goToAdd}
+          >
+            Registro
+          </Button>
+        </Container>
+
+        {/* Footer */}
+        <Box
+          bg="secondary.100"
+          p={4}
+          mt={4}
+          borderTop="1px solid secondary.50"
+          textAlign="center"
+        >
+          <Text color="primary.50">
+            Desarrollado por Eric Fabian Ramírez y Pablo Andrés Triana
+          </Text>
+        </Box>
+      </Box>
+    </ChakraProvider>
   );
 };
 
-export default Inicio;
+export default Ini;
