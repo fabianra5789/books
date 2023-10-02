@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "turbo dev"
+    "dev": "turbo dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "keywords": [],
   "author": "",
@@ -39,6 +42,7 @@
     "turbo": "^1.10.13"
   },
   "devDependencies": {
-    "@types/passport-local": "^1.0.35"
+    "@types/passport-local": "^1.0.35",
+    "webpack-cli": "^5.1.4"
   }
 }

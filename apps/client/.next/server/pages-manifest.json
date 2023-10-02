@@ -1,9 +1,14 @@
 {
   "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/auth/bares": "pages/auth/bares.js",
-  "/auth/register": "pages/auth/register.js",
-  "/auth/add": "pages/auth/add.js",
-  "/": "pages/index.js"
+  "/auth/add": "pages/auth/add.html",
+  "/api/hello": "pages/api/hello.js",
+  "/auth/Footer": "pages/auth/Footer.html",
+  "/auth/Header": "pages/auth/Header.html",
+  "/auth/bares": "pages/auth/bares.html",
+  "/": "pages/index.html",
+  "/auth/register": "pages/auth/register.html",
+  "/auth/login": "pages/auth/login.html",
+  "/_error": "pages/_error.js",
+  "/404": "pages/404.html"
 }
