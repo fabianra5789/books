@@ -1,19 +1,28 @@
 import React from "react";
-import { PinInput, PinInputField, Input, Button } from "@chakra-ui/react";
+import {
+  PinInput,
+  PinInputField,
+  Flex,
+  Heading,
+  Input,
+  Button,
+} from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import toast from "react-hot-toast";
 import Image from "next/image";
 import { Inter } from "next/font/google";
+import { FaGlassCheers, FaUser, FaPencilAlt } from "react-icons/fa";
 import {
   Card,
   CardHeader,
   CardBody,
   CardFooter,
-  Heading,
   Text,
   Box,
   Center,
 } from "@chakra-ui/react";
+
+import Footer from "./Footer"; // Importa el pie de página
 
 const inter = Inter({ subsets: ["latin"] });
 const Inicio = () => {
@@ -65,14 +74,22 @@ const Inicio = () => {
   };
   return (
     <Box>
-      {/* Encabezado */}
-      <Box bg="teal" p={4}>
-        <Center>
-          <Heading as="h1" color="white">
-            BogotáNightlifeHub
-          </Heading>
-        </Center>
-      </Box>
+      <Flex
+        alignItems="center"
+        bg="secondary.100"
+        p={4}
+        mb={4}
+        borderBottom="1px solid secondary.50"
+      >
+        <FaGlassCheers
+          size={24}
+          color="primary.50"
+          style={{ marginRight: "8px" }}
+        />
+        <Heading as="h1" color="primary.50" flex="1">
+          BogotáNightlifeHub
+        </Heading>
+      </Flex>
       <main className={`flex min-h-screen items-center justify-center `}>
         <Card className="w-1/2">
           {" "}
@@ -130,12 +147,7 @@ const Inicio = () => {
         </Card>{" "}
         {/* Fin de la tarjeta */}
       </main>
-      {/* Pie de página */}
-      <Box bg="teal" p={4} mt={4} textAlign="center">
-        <Text color="white">
-          Desarrollado por Eric Fabian Ramírez y Pablo Andrés Triana
-        </Text>
-      </Box>
+      <Footer /> {/* Pie de página */}
     </Box>
   );
 };
