@@ -1,71 +1,82 @@
-<p align="center">
-  <a href="https://turbo.build">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/4060187/196936123-f6e1db90-784d-4174-b774-92502b718836.png">
-      <img src="https://user-images.githubusercontent.com/4060187/196936104-5797972c-ab10-4834-bd61-0d1e5f442c9c.png" height="128">
-    </picture>
-    <h1 align="center">Turbo</h1>
-  </a>
-</p>
+# Aplicación de Listado de Bares en Bogotá
 
-<p align="center">
-  <a aria-label="Vercel logo" href="https://vercel.com/">
-    <img src="https://img.shields.io/badge/MADE%20BY%20Vercel-000000.svg?style=for-the-badge&logo=Vercel&labelColor=000">
-  </a>
-  <a aria-label="NPM version" href="https://www.npmjs.com/package/turbo">
-    <img alt="" src="https://img.shields.io/npm/v/turbo.svg?style=for-the-badge&labelColor=000000">
-  </a>
-  <a aria-label="License" href="https://github.com/vercel/turbo/blob/main/LICENSE">
-    <img alt="" src="https://img.shields.io/npm/l/turbo.svg?style=for-the-badge&labelColor=000000&color=">
-  </a>
-  <a aria-label="Join the community on GitHub" href="https://github.com/vercel/turbo/discussions">
-    <img alt="" src="https://img.shields.io/badge/Join%20the%20community-blueviolet.svg?style=for-the-badge&logo=turborepo&labelColor=000000&logoWidth=20&logoColor=white">
-  </a>
-</p>
+Este monorepo contiene la aplicación de listado de bares en Bogotá, donde los usuarios pueden explorar y calificar bares en la ciudad. La aplicación está diseñada utilizando Nest.js para el backend, Next.js para el frontend y Turbo Repo para gestionar el monorepo.
 
-Turbo is a next-generation toolchain for frontend development, written in Rust. It consists of 3 major parts:
+## Descripción General
 
-- [**Turbopack:**](https://turbo.build/pack) an incremental bundler (the successor to Webpack)
-- [**Turborepo:**](https://turbo.build/repo) an incremental build system
-- The Turbo engine: a low-level incremental computation and memoization engine
+La aplicación de listado de bares en Bogotá permite a los usuarios:
 
-## Getting Started
+- Explorar una lista de bares en Bogotá.
+- Ver detalles de un bar, incluidas sus ubicación, horario y calificaciones.
+- Calificar y revisar bares.
+- Filtrar bares por ubicación, categoría y calificación.
 
-Visit https://turbo.build to get started with Turbopack and Turborepo.
+## Requisitos de Desarrollo
 
-## Contributing
+Asegúrate de tener las siguientes herramientas instaladas antes de configurar y ejecutar el monorepo:
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for more information.
+- [Node.js](https://nodejs.org/)
+- [Visual Studio Code](https://code.visualstudio.com/)
 
-## Community
+## Configuración Inicial
 
-The Turbo community can be found on [GitHub Discussions](https://github.com/vercel/turbo/discussions), where you can ask questions, voice ideas, and share your projects.
+Siga estos pasos para configurar el monorepo en su entorno de desarrollo:
 
-To chat with other community members, you can join the [Turbo Discord](https://turbo.build/discord).
+1. Clona este repositorio en tu máquina local:
 
-Our [Code of Conduct](https://github.com/vercel/turbo/blob/main/CODE_OF_CONDUCT.md) applies to all Turbo community channels.
+```bash
+git clone https://github.com/fabianra5789/books.git
+```
 
-## Who is using Turbo?
+2. Accede al directorio del monorepo:
 
-Turbo is used by the world's leading companies. Check out the [Turbo Showcase](https://turbo.build/showcase) to learn more.
+```bash
+cd books
+```
 
-## Updates
+3. Instala las dependencias del proyecto:
 
-Follow [@turborepo](https://twitter.com/turborepo) on Twitter and for project updates.
+```bash
+npm install
+# o
+yarn
+```
 
-## Authors
+## Comandos del `package.json`
 
-**Turborepo**
+El archivo `package.json` en la raíz del monorepo contiene scripts útiles para el desarrollo y la construcción del proyecto. Aquí tienes una explicación de los comandos disponibles:
 
-- Jared Palmer ([@jaredpalmer](https://twitter.com/jaredpalmer))
+- `test`: Ejecuta pruebas (actualmente muestra un mensaje de error, debes agregar tus propias pruebas).
+- `dev`: Inicia el modo de desarrollo utilizando Turbo Dev.
+- `build`: Construye el proyecto utilizando Turbo Build.
+- `lint`: Ejecuta el linter para verificar el código en busca de problemas.
 
-**Turbopack and the Turbo engine**
+## Contribución
 
-- Tobias Koppers ([@wSokra](https://twitter.com/wSokra))
-- Maia Teegarden ([@padmaia](https://twitter.com/padmaia))
+Si deseas contribuir a este proyecto, sigue estos pasos:
 
-## Security
+1. Crea una rama para tu contribución:
 
-If you believe you have found a security vulnerability in Turbo, we encourage you to responsibly disclose this and not open a public issue. We will investigate all legitimate reports. Email `security@vercel.com` to disclose any security vulnerabilities.
+```bash
+git checkout -b mi-contribucion
+```
 
-https://vercel.com/security
+2. Realiza tus cambios y asegúrate de que todas las pruebas pasen.
+
+3. Realiza un commit de tus cambios:
+
+```bash
+git commit -m "Añade nueva funcionalidad"
+```
+
+4. Envía tus cambios al repositorio remoto:
+
+```bash
+git push origin mi-contribucion
+```
+
+5. Abre una solicitud de extracción en GitHub para revisar tus cambios.
+
+## Licencia
+
+Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para obtener más detalles.
